@@ -20,54 +20,53 @@ The goal of this project is to improve communication accessibility for the deaf 
 - [MediaPipe](https://developers.google.com/mediapipe)
 - [NumPy](https://numpy.org/)
 - [scikit-learn](https://scikit-learn.org/)
-- [TensorFlow](https://www.tensorflow.org/) *(optional, for neural network models)*
+
 
 ## 📁 Project Structure
 
 ```
 sign-language-recognition/
-│
-├── data/                      # Training data (landmark points)
-├── model/                     # Trained models
-├── notebooks/                 # Jupyter Notebooks for experiments
-├── utils/                     # Utility scripts
-├── capture_data.py            # Captures and stores hand landmark data
-├── train_model.py             # Trains the recognition model
-├── recognize.py               # Real-time gesture recognition
-├── requirements.txt           # Project dependencies
+│                   
+├── extraccion_de_imagenes.py  # Captures hand landmark data
+├── dataset.py                 # The script processes labeled hand gesture images stored in subdirectories under ./data/.
+├── randomforest.py            # Trains the recognition model
+├── modelo final.py            # Real-time gesture recognition
 └── README.md                  # This file
 ```
 
 ## 🧪 Getting Started
 
-### 1. Install Dependencies
 
-```bash
-pip install -r requirements.txt
-```
 
-### 2. Capture Training Data
+### 1. Capture Training Data
 
 Run the script to start capturing gesture data:
 
 ```bash
-python capture_data.py
+extraccion_de_imagenes.py
 ```
 
 You'll be prompted to enter the label of the sign. Then, the system will start recording hand landmarks.
 
+### 2. Create the dataset
+
+```bash
+python dataset.py
+```
+This step creates the feature dataset used to train the sign recognition model.
+
 ### 3. Train the Model
 
 ```bash
-python train_model.py
+python randomforest.py
 ```
 
-This will train a classifier and save the model to the `model/` directory.
+This will train a classifier and save the model.
 
 ### 4. Run Real-Time Recognition
 
 ```bash
-python recognize.py
+python modelo final.py
 ```
 
 The system will use your webcam to recognize signs in real-time.
@@ -82,12 +81,7 @@ The system will use your webcam to recognize signs in real-time.
 
 - Good lighting and a neutral background will improve recognition accuracy.
 - Consistency in hand position during data capture is crucial for model performance.
-- You can expand the dataset by repeating the data collection process with new labels.
 
 ## 📄 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-## 🤝 Contributions
-
-Contributions are welcome! Feel free to open an issue or fork the repository to propose new signs or improvements.
