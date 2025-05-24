@@ -46,8 +46,6 @@ Run the script to start capturing gesture data:
 extraccion_de_imagenes.py
 ```
 
-You'll be prompted to enter the label of the sign. Then, the system will start recording hand landmarks.
-
 ### 2. Create the dataset
 
 ```bash
